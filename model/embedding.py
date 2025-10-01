@@ -4,6 +4,7 @@ from transformers import AutoTokenizer, AutoModel
 
 tokenizer = AutoTokenizer.from_pretrained("nomic-ai/nomic-embed-text-v2-moe")
 model = AutoModel.from_pretrained("nomic-ai/nomic-embed-text-v2-moe", trust_remote_code=True)
+model.to("mps")
 model.eval()
 
 def mean_pooling(model_output, attention_mask):
